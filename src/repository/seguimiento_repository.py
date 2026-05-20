@@ -38,13 +38,13 @@ class SeguimientoRepository:
 
         self.seguimientos.append(seguimiento)
         self.seguimientos_por_id[seguimiento.id_seguimiento] = seguimiento
-        self._save()
+        self.save()
 
     def delete(self, seguimiento):
 
         self.seguimientos.remove(seguimiento)
         del self.seguimientos_por_id[seguimiento.id_seguimiento]
-        self._save()
+        self.save()
 
     def get_all(self):
 
