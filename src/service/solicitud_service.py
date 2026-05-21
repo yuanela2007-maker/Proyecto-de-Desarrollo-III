@@ -48,6 +48,7 @@ class SolicitudService:
 
         solicitud.estado = "En revisión"
         animal.estado = "En proceso"
+        self.repositorio.save()
         return "La revisión de la solicitud fue iniciada correctamente"
 
     def determinar_resolucion_solicitud(self, id_solicitud, observaciones):
@@ -69,6 +70,7 @@ class SolicitudService:
 
         solicitud.observaciones = observaciones
         solicitud.fecha_resolucion = date.today()
+        self.repositorio.save()
         return "La resolución de la solicitud fue registrada correctamente"
 
     def realizar_entrega(self, id_solicitud):
@@ -80,6 +82,7 @@ class SolicitudService:
 
         solicitud.estado = "Entregada"
         solicitud.fecha_entrega = date.today()
+        self.repositorio.save()
         return "La solicitud fue entregada correctamente"
 
 

@@ -49,8 +49,7 @@ class SeguimientoService:
 
         for seguimiento in seguimientos:
             if seguimiento.id_solicitud == id_solicitud:
-
-            seguimientos_por_adopcion.append(seguimiento)
+                seguimientos_por_adopcion.append(seguimiento)
 
         return seguimientos_por_adopcion
 
@@ -62,5 +61,6 @@ class SeguimientoService:
             raise ValueError("El ID indicado no pertenece a ningún seguimiento de adopción registrada")
 
         seguimiento.marcar_completado()
+        self.repositorio.save()
         return "El seguimiento se completó correctamente"
 
