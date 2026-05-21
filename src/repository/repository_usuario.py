@@ -43,7 +43,7 @@ class UsuarioRepositorio:
         return list(self._lista_usuario)
 
     def get_by_id(self, id_usuario):
-        return self._diccionario_usuario.get(id_usuario)
+        return self._diccionario_usuario[id_usuario]
 
     def exists(self, id_usuario):
         return id_usuario in self._diccionario_usuario
@@ -56,6 +56,12 @@ class UsuarioRepositorio:
         del self._diccionario_usuario[id_usuario]
         self._save()
         return True
+
+    def get_usuario_by_nombre_usuario(self, nombre_usuario):
+        for usuario in self.get_all():
+            if usuario.nombre_usuario == nombre_usuario:
+                return usuario
+        return None
 
 
 

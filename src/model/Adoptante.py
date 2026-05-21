@@ -42,10 +42,7 @@ class Adoptante:
         )
 
     def esta_activo(self):
-        if not self.estado_perfil:
-            return False
-        else:
-            return True
+        return self.estado_perfil == "Activo"
 
     def __str__(self):
         return f"{self.id_adoptante} | {self.nombre_completo} | {self.cedula} | {self.telefono} | {self.correo} | {self.direccion} | {self.tipo_vivienda} | {self.tiene_espacio_exterior} | {self.otros_animales} | {self.estado_perfil}"

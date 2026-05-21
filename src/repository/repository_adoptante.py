@@ -48,6 +48,18 @@ class AdoptanteRepositorio:
     def exists(self, id_adoptante):
         return id_adoptante in self._diccionario_adoptante
 
+    def exists_cedula(self, cedula):
+        for adoptante in self._lista_adoptante:
+            if adoptante.cedula == cedula:
+                return True
+        return False
+
+    def get_by_cedula(self, cedula):
+        for adoptante in self._lista_adoptante:
+            if adoptante.cedula == cedula:
+                return adoptante
+        return None
+
     def delete(self, id_adoptante):
         if not self.exists(id_adoptante):
             return False

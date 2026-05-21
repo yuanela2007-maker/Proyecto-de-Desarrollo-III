@@ -1,5 +1,6 @@
 class Usuario:
 
+
     def __init__(self, id_usuario, nombre_usuario, contrasena,rol,nombre_completo,fecha_registro):
         self.id_usuario = id_usuario
         self.nombre_usuario= nombre_usuario
@@ -29,11 +30,10 @@ class Usuario:
             diccionario_usuario["fecha_registro"]
         )
 
-    def verificar_contrasena(self):
-        if not self.contrasena:
-            return False
-        else:
-            return True
+    @classmethod
+    def contrasena_es_valida(cls, contrasena):
+        """Verifica si la contraseña cumple requisitos mínimos"""
+        return bool(contrasena and len(contrasena) >= 6)
 
     def __str__(self):
         return f"{self.id_usuario} | {self.nombre_usuario} | {self.contrasena} | {self.rol} | {self.nombre_completo} | {self.fecha_registro}"
