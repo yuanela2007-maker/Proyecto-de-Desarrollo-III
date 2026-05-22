@@ -59,12 +59,12 @@ class AdoptanteService:
     def get_adoptante_by_id(self, id_adoptante):
         if not self.repositorio_adoptante.exists(id_adoptante):
             raise ValueError(f"El adoptante con ID {id_adoptante} no existe.")
-        return self.repositorio_adoptante.get_by_id(id_adoptante)
+        return self.repositorio_adoptante.get_by_id(id_adoptante), ""
 
     def get_adoptante_by_cedula(self, cedula):
         if not self.repositorio_adoptante.exists_cedula(cedula):
             raise ValueError(f"El adoptante con esa {cedula} no existe.")
-        return self.repositorio_adoptante.get_by_cedula(cedula)
+        return self.repositorio_adoptante.get_by_cedula(cedula), ""
 
     def delete_adoptante(self, id_adoptante):
         if not self.repositorio_adoptante.exists(id_adoptante):

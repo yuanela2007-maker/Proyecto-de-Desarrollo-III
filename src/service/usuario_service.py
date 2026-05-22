@@ -31,7 +31,7 @@ class UsuarioService:
     def get_usuario_by_id(self, id_usuario):
         if not self.repositorio_usuario.exists(id_usuario):
             raise ValueError(f"El usuario con ID {id_usuario} no existe.")
-        return self.repositorio_usuario.get_by_id(id_usuario)
+        return self.repositorio_usuario.get_by_id(id_usuario), ""
 
     def delete_usuario(self, id_usuario):
         if not self.repositorio_usuario.exists(id_usuario):
