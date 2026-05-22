@@ -81,7 +81,7 @@ class AnimalService:
         if not animal:
             raise ValueError("El ID indicado no corresponde a ningún animal registrado")
 
-        if estado.capitalize() not in("Disponible", "En proceso", "Adoptado", "En cuarentena", "Fallecido")
+        if estado.capitalize() not in("Disponible", "En proceso", "Adoptado", "En cuarentena", "Fallecido"):
             raise ValueError("El estado indicado no es válido")
 
         animal.estado = estado
